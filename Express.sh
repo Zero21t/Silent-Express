@@ -1,8 +1,6 @@
 #!/bin/bash
 
 alias Express='./Express.sh'
-source upload.sh
-source Client.sh
 #subCommand cases 
 case "$1" in
     -f|--file)
@@ -46,12 +44,17 @@ case "$1" in
     file="$2"
         case "$3" in 
             -ip)
-            $IP="$4"
+            IP="$4"
                 case "$5" in
                     -p)
-                    $port="$6"
-                    upload
+                    port="$6"
+                    chmod +x upload.sh
+                    ./upload.sh
+                    ;;
+                    *)
+                    echo "error"
                 esac
+            ;;
         esac
     ;;
     *)

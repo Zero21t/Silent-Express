@@ -1,6 +1,8 @@
 #!/bin/bash
 
-IP=""
-port="1234"
+source Express.sh
+ip="$IP"
+p="$port"
+f="$file"
 
-nc $IP $port "encrypted.enc"
+nc "$ip $p $f"
