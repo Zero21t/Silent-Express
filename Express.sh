@@ -43,24 +43,28 @@ case "$1" in
     -s|--send)
     FILE="$2"
         case "$3" in 
-            -ssh)
-            SSH="$4"
+            -h|--host)
+            HOST="$4"
                 case "$5" in
-                    -p)
-                    PATH="$6"
-                    chmod +x send.sh
-                    ./send.sh
-                    ;;
+                    -u|--username)
+                    USER="$6"
+                    PASSWD="$7"
+                        case "$8" in
+                            -l|-location)
+                            DIRECTORY="$9"
+                            chmod +x send.sh
+                            ./send.sh
+                        ;;
+                        esac
+                ;;
                 esac
-            ;;
+        ;;
         esac
     ;;
     -r|--recieve)
         case "$2" in 
             -p)
             port="$3"
-            chmod +x Client.sh
-            ./Client.sh
             ;;
         esac
     ;;
