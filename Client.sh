@@ -5,12 +5,12 @@ source Express.sh
 p=$port
 
 echo "Waiting for connection on port $port"
-nc -l -p $p | (
+nc -l -p "$p" | (
     # Read the first line, which contains the file name
-    read -r f
+    read -r filename
 
     # Read the remaining data and save it to the file
-    cat > "$f"
+    cat > "$filename"
 
-    echo "File received: $f"
+    echo "File received: $filename"
 )
