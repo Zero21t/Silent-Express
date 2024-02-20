@@ -5,15 +5,15 @@ alias Express='./Express.sh'
 case "$1" in
     -f|--file)
     #insert file name
-    file="$2"
+    FILE="$2"
         case "$3" in 
             -e|--Encrypt)
             #set key file to be read
-            Key="$4"
+            KEY="$4"
             #if file exists encrypt else print error
-            if [ -e "$file" ]; then 
+            if [ -e "$FILE" ]; then 
                 #encrypts using 64 bit key and using AES
-                openssl enc -aes-256-cbc -salt -in "$file" -out "encrypted_file.enc" -pass "pass:$Key"
+                openssl enc -aes-256-cbc -salt -in "$FILE" -out "encrypted_file.enc" -pass "pass:$KEY"
             else
                 #Error print
                 echo "ERROR ENCRYPTING"
@@ -21,10 +21,10 @@ case "$1" in
             ;;
             -d|--decrypt)
             #set key to be read
-            Key="$4"
+            KEY="$4"
             #decrypt file else print error
-            if [ -e "$file" ]; then 
-                openssl enc -d -aes-256-cbc -salt -in "$file" -out "decrypted_file.txt" -pass "pass:$Key"
+            if [ -e "$FILE" ]; then 
+                openssl enc -d -aes-256-cbc -salt -in "$FILE" -out "decrypted_file.txt" -pass "pass:$KEY"
             else 
             #Error print
                 echo "ERROR DECRYPTING"
@@ -41,15 +41,15 @@ case "$1" in
         echo "Key.txt:"
     ;;
     -s|--send)
-    file="$2"
+    FILE="$2"
         case "$3" in 
-            -ip)
-            IP="$4"
+            -ssh)
+            SSH="$4"
                 case "$5" in
                     -p)
-                    port="$6"
-                    chmod +x upload.sh
-                    ./upload.sh
+                    PATH="$6"
+                    chmod +x send.sh
+                    ./send.sh
                     ;;
                 esac
             ;;
