@@ -55,4 +55,13 @@ case "$1" in
             ;;
         esac
     ;;
+    -r|--recieve)
+        case "$2" in 
+            -p)
+            port="$3"
+            chmod +x Client.sh
+            ./Client.sh
+            ;;
+        esac
+    ;;
 esac
