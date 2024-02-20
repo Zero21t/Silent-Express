@@ -51,8 +51,8 @@ case "$1" in
                     -p)
                     $port="$6"
                     upload
-
-
+                esac
+        esac
     ;;
     *)
         echo "invalid command"
