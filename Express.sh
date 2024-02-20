@@ -55,7 +55,4 @@ case "$1" in
             ;;
         esac
     ;;
-    *)
-        echo "invalid command"
-        ;;
 esac

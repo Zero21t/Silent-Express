@@ -5,5 +5,5 @@ ip="$IP"
 p=$port
 f="$file"
 
-echo "$f" | nc "$ip" $p
-cat "$f" | nc "$ip" $p
+echo "$f" | nc "$ip" "$p"
+cat $f | nc "$ip" "$p"

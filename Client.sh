@@ -1,7 +1,17 @@
 #!/bin/bash
-port=""
+
+source Express.sh
+
+p=$port
+f="$file"
+
 echo "Waiting for connection on port $port"
-nc -l -p $port > encrypted_file.enc
+nc -l -p $p | (
+    # Read the first line, which contains the file name
+    read -r filename
 
+    # Read the remaining data and save it to the file
+    cat > "$filename"
 
-echo "File is revieved: encrypted_file.enc"
+    echo "File received: $filename"
+)
