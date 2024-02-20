@@ -8,8 +8,7 @@ REMOTE_DIR="$DIRECTORY"
 FILE_DIRECTORY="$FILE"
 
 # Transfer file to remote server
-sftp $USERNAME@$HOST <<EOF
-cd $REMOTE_DIR
-put $FILE_DIRECTORY
-bye
-EOF
+sftp $USERNAME@$HOST 
+$PASSWORD
+cd "$REMOTE_DIRECTORY"
+put "$FILE_DIRECTORY"

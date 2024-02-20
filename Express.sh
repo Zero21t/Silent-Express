@@ -62,10 +62,24 @@ case "$1" in
         esac
     ;;
     -r|--recieve)
-        case "$2" in 
-            -p)
-            port="$3"
-            ;;
+        FILE="$2"
+        case "$3" in 
+            -h|--host)
+            HOST="$4"
+                case "$5" in
+                    -u|--username)
+                    USER="$6"
+                    PASSWD="$7"
+                        case "$8" in
+                            -l|-location)
+                            DIRECTORY="$9"
+                            chmod +x recieve.sh
+                            ./recieve.sh
+                        ;;
+                        esac
+                ;;
+                esac
+        ;;
         esac
     ;;
 esac
