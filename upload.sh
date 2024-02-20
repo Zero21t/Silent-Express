@@ -2,7 +2,8 @@
 
 source Express.sh
 ip="$IP"
-p="$port"
+p=$port
 f="$file"
 
-nc $ip $p < $f
+echo "$f" | nc "$ip" $p
+cat "$f" | nc "$ip" $p
