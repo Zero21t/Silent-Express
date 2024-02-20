@@ -5,4 +5,4 @@ ip="$IP"
 p="$port"
 f="$file"
 
-nc $ip $p $f
+nc $ip $p < $f
