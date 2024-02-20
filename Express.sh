@@ -51,8 +51,6 @@ case "$1" in
                     chmod +x upload.sh
                     ./upload.sh
                     ;;
-                    *)
-                    echo "error"
                 esac
             ;;
         esac
